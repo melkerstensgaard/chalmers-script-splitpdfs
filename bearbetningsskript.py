@@ -342,21 +342,20 @@ def has_page_one_footer(text):
     if not text:
         return False
 
-    lines = [line.strip().upper() for line in text.splitlines() if line.strip()]
-    bottom_lines = lines[-10:] if lines else []
-    bottom_text = " ".join(bottom_lines)
+    t = text.upper()
 
-    bottom_text = bottom_text.replace("Ⅰ", "I")
-    bottom_text = re.sub(r"\s+", " ", bottom_text)
+    t = t.replace("Ⅰ", "I")
+    t = re.sub(r"\s+", " ", t)
 
     footer_patterns = [
         r"(?:^|\s)SID\s*[1IL]\s*(?:AV|/)?\s*\d*",
         r"(?:^|\s)SIDA\s*[1IL]\s*(?:AV|/)?\s*\d*",
         r"(?:^|\s)PAGE\s*[1IL]\s*(?:OF|/)?\s*\d*",
         r"(?:^|\s)[1IL]\s*(?:AV|OF|/)\s*\d*",
+        r"(?:^|\s)SIDA\s*/\s*PAGE\s*[1IL]\s*\(\s*\d+\s*\)",
     ]
 
-    return any(re.search(pattern, bottom_text) for pattern in footer_patterns)
+    return any(re.search(pattern, t) for pattern in footer_patterns)
 
 
 

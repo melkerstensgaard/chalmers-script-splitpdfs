@@ -23,10 +23,8 @@ För att använda bearbetningsskriptet gör man i nuläget följande i WSL:
 
 Eller via gränssnittet via:
 
-
 ```Python3 gränssnitt.py ```
 Gränssnittet aktiverar bara skriptet åt en men man kan också lägga till fler markörer däri så det finns lite mer funktionalitet om man använder gränssnittet.
-
 
 ### Workflow
 1. Ta ut alla bevisen ur fasciklarna, låt bilagor ligga kvar.
@@ -48,39 +46,6 @@ Andra verktyg vi använt är:
 -	[VeraPDF]([url](https://docs.verapdf.org/install/)) (för PDF/A-2u granskning och verifiering, det är Greenfield vi använder)
 -	[Java]([url](https://www.java.com/en/download/)) – VeraPDF behöver java
 -	[PDFtoPDFa]([url](https://github.com/iRedPaul/pdftopdfa/blob/main/docs/usage.md)) – konvertera pdf till pdf/a2u
-
-#### Installera WSL
-För att installera WSL gör vi följande. Vi har valt Debian för att göra det så enkelt som möjligt. 
-
-```Wsl –install```
-
-sen startar man om datorn.
-Därefter kör man:
-
-```wsl.exe -–install Debian```
-
-sedan får man göra en användare på Linux, tips är att använda samma uppgifter som användaren på datorn för att göra det enkelt. Klart!
-Förberedelser i WSL
-Efter att ha installerat och öppnat WSL behöver vi installera OCRmyPDF samt tillägget för svenska. Först gör vi en systemuppgradering med:
-
-```sudo apt update && apt upgrade```
-
-Sedan installerar vi OCRmyPDF och tillägget för svenska:
-Nu ska vi ladda ner Python och lite annat som krävs för skriptet
-
-```sudo apt install python3 pip python3-pypdf python3-tqdm python3-openpyxl```	
-
-nu är de programmen vi behöver färdiga för användning. Vi behöver dock göra en liten ändring för att inte hela WSL lagringsutrymmet ska fyllas av temporära filer. För att fixa det gör vi ett bind mount från Windows filsystem över WSL mappen där OCRmyPDF lägger temporära filer. Så vi går in i WSL och redigerar följande fil:
-
-```sudo nano /etc/fstab```
-
-Där skriver vi 
-
-```/mnt/c/Users/<windows-användare>/SKANNINGSMAPPEN/OCRmyPDF-tmp /tmp none bind 0 0```
-
-Där <windows-användare> är användarnamnet på datorn, tex melste. Därefter måste man tillämpa de nya inställningarna genom att:
-
-```sudo systemctl daemon-reload```
 
 ```sudo mount -a```
 

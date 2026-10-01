@@ -12,7 +12,7 @@ o Om den inte hittar en 10-siffrig sifferkombination letar den efter andra forma
 
 ### Användning
 För att göra OCR mha OCRmyPDF skriver man:
-exec ocrmypdf -l swe --deskew --output-type pdf <pdf>
+exec ocrmypdf -l swe --output-type pdf <pdf>
 för att köra igenom hela mappar gör man:
 
 ```find . -name '*.pdf' -printf '%p\n' -exec ocrmypdf -l swe --output-type pdf '{}' '{}' \;```
@@ -33,7 +33,8 @@ Gränssnittet aktiverar bara skriptet åt en men man kan också lägga till fler
 4. Kör OCRmyPDF kommandot.
 5. Kör python skriptet.
 6. Spara till "bearbetat"
-8. Kolla så att allt ser bra ut och lägg sedan in i "Färdigt"
+8. Validera.
+9. Flytta till "färdigt".
 Klart! 
 
 ### Dokumentation

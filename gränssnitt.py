@@ -4,7 +4,7 @@ import threading
 import queue
 
 from bearbetningsskript import process_all, get_default_config
-
+from validation import validate_output
 # -------------------------
 # LIST EDITOR COMPONENT
 # -------------------------
@@ -71,11 +71,15 @@ class CertificateGUI:
         self.allow_personnummer = tk.BooleanVar(
             value=False
         )
-
+        # Validation
+        self.run_validation = tk.BooleanVar(
+            value=True
+        )
         self.build_ui()
         self.load_config_into_ui()
 
         self.poll_queues()
+
 
 
     # -------------------------
@@ -103,6 +107,13 @@ class CertificateGUI:
             self.root,
             text="Tillåt personnummer på första sidan",
             variable=self.allow_personnummer
+        ).pack(anchor="w", padx=10)
+
+        # Validation button
+        tk.Checkbutton(
+            self.root,
+            text="Kör slutvalidering",
+            variable=self.run_validation
         ).pack(anchor="w", padx=10)
 
         '''
@@ -296,9 +307,18 @@ class CertificateGUI:
                     log_callback=self.processor_log_callback,
                     progress_callback=self.processor_progress_callback
                 )
+
+                if self.run_validation.get():
+                    validate_output(
+                        input_root=input_folder,
+                        output_root=output_folder,
+                        log_callback=self.processor_log_callback
+                    )
+
                 self.log_queue.put(
                     "Processing complete"
-            )
+                )
+
             except Exception as e:
 
                 self.log_queue.put(

@@ -1,6 +1,5 @@
 ### Guide/info för inskanningsarbetet
-Detta dokument beskriver ett Python skript som tillsammans OCRmyPDF effektiviserar flera delar av inskanningsarbetet. Det innehåller både dokumentation på hur vi gjorde och tänkte för att skapa skriptet samt en guide på hur vi tänker använda det i processen. 
-Vi börjar med guiden eftersom det är delen vi oftast kommer återkomma till, därefter finns dokumentation och sådant. 
+Detta dokument beskriver ett Python skript som tillsammans OCRmyPDF effektiviserar flera delar av inskanningsarbetet.
 Bulletpoints över vad skriptet gör:
 - Delar automatiskt intygen så att varje intyg blir en egen PDF
 - Lägger in filnamn, volymnamn och personnummer i ett exceldokument.

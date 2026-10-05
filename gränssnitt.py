@@ -4,7 +4,7 @@ import threading
 import queue
 
 from bearbetningsskript import process_all, get_default_config
-from validation import validate_output
+from valideringsskript import validate_output
 # -------------------------
 # LIST EDITOR COMPONENT
 # -------------------------

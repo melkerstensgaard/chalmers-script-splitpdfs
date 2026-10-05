@@ -9,6 +9,10 @@ o Om den inte hittar en 10-siffrig sifferkombination letar den efter andra forma
 - Rapporterar fel till en log fil
 - Skippar hela volymen om någonting är fel med någon PDF däri, rapporterar sedan detta till en separat log fil
 
+## Skärmdump
+<img width="602" height="858" alt="image" src="https://github.com/user-attachments/assets/30522767-87ac-4214-bfac-51228dd1c505" />
+
+
 ### Användning
 Innan man kan använda skriptet måste man ladda ner de pythonpaket som behövs. Dessa finns i requirements.txt. Installera dem genom följande kommando:
 
